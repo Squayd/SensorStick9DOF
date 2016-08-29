@@ -12,12 +12,27 @@
  * Following initialization and use examples from Razor_AHRS Firmware 
  * https://github.com/ptrbrtz/razor-9dof-ahrs
  *
+ * header
  */
  #ifndef _HMC5883L_H_USED_
  #define _HMC5883L_H_USED_
  
+ #define I2C_ADDRESS ((int16_t) 0x1E)
+ 
  #include <Wire.h>
  
+ class HMC5883L
+{
+  public:
+    //functions
+    HMC5883L();           //constructor
+    bool begin();         //Initialize sensors and begin reading
+    float getHeading();   //Returns magnetic heading
+    //variables
+  private:
+    //functions
+    //variables
+    int16_t i2cAddress;
+}
  
- 
- #dendif
+ #endif
